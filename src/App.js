@@ -3,9 +3,22 @@ import NewComboForm from './NewComboForm';
 import './App.css';
 
 class App extends React.Component {
-  _handleNewComboSubmit(items) {
+  _handleNewComboSubmit(item1, item2) {
     console.log("App#_handleNewComboSubmit");
-    console.log(items);
+
+    const req = new Request(
+      "http://localhost:3001",
+      {
+        method: 'POST',
+        body: { item1, item2 }
+      }
+    );
+
+    fetch(req)
+        .then((res) => {
+          console.log("Response received from backend");
+          console.log(res);
+        });
   }
 
   render() {
