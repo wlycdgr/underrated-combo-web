@@ -5,12 +5,17 @@ import './App.css';
 class App extends React.Component {
   _handleNewComboSubmit(item1, item2) {
     console.log("App#_handleNewComboSubmit");
+    const requestBody = JSON.stringify({ item1: item1, item2: item2 });
+    console.log(requestBody);
 
     const req = new Request(
       "http://localhost:3001",
       {
         method: 'POST',
-        body: { item1, item2 }
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: requestBody
       }
     );
 

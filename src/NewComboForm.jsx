@@ -15,7 +15,7 @@ class NewComboForm extends React.Component {
 
         const { item1, item2 } = this.state;
 
-        this.props.handleSubmit([item1, item2]);
+        this.props.handleSubmit(item1, item2);
     }
 
     _updateItemValue = (e) => {
